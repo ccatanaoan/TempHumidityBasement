@@ -1,4 +1,4 @@
-C:\Users\Cloyd\Desktop\BASEME~2\Objects\bin\core\sntp-lwip2.c.o: \
+C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\core\sntp-lwip2.c.o: \
  C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.4.1\cores\esp8266\sntp-lwip2.c \
  C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.4.1/tools/sdk/lwip2/include/lwip/init.h \
  C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.4.1/tools/sdk/lwip2/include/lwip/opt.h \

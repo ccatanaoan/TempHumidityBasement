@@ -1,4 +1,4 @@
-C:\Users\Cloyd\Desktop\BASEME~2\Objects\bin\libraries\ESP8266WiFi\WiFiServer.cpp.o: \
+C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\libraries\ESP8266WiFi\WiFiServer.cpp.o: \
  C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.4.1\libraries\ESP8266WiFi\src\WiFiServer.cpp \
  C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.4.1/tools/sdk/include/osapi.h \
  C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.4.1/tools/sdk/libc/xtensa-lx106-elf/include/string.h \
