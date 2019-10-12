@@ -28,7 +28,6 @@ B4R::ByteConverter* b4r_main::_bc;
 Double b4r_main::_dht22humidityaddvalue;
 B4R::B4RESP8266TimeTools* b4r_main::_timelib;
 ULong b4r_main::_timestamp;
-b4r_timenist* b4r_main::_timenist;
 static B4R::Serial be_gann1_3;
 static B4R::D1Pins be_gann2_3;
 static B4R::Pin be_gann3_3;
@@ -57,7 +56,7 @@ ComfortState cf;
 DHTesp dht22;
 
 void setup(B4R::Object* o){
-	dht22.setup(DHT22Pin);
+	dht22.setup(DHT22Pin, DHTesp::DHT22);
 }
 
  void SetSTA(B4R::Object* o) {
@@ -250,7 +249,6 @@ B4R::StackMemory::cp = cp;
 void b4r_main::initializeProcessGlobals() {
      B4R::StackMemory::buffer = (byte*)malloc(STACK_BUFFER_SIZE);
      b4r_main::_process_globals();
-b4r_timenist::_process_globals();
 
    
 }
