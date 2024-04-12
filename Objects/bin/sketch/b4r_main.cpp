@@ -7,9 +7,6 @@ B4R::Pin* b4r_main::_d6;
 B4R::B4RESPWiFi* b4r_main::_wifi;
 B4R::WiFiSocket* b4r_main::_wifistr;
 B4R::MqttClient* b4r_main::_mqtt;
-B4R::MqttConnectOptions* b4r_main::_mqttopt;
-B4R::B4RString* b4r_main::_mqttuser;
-B4R::B4RString* b4r_main::_mqttpassword;
 B4R::B4RString* b4r_main::_mqtthostname;
 Int b4r_main::_mqttport;
 B4R::B4RESP8266* b4r_main::_esp;
@@ -35,17 +32,14 @@ static B4R::Pin be_gann4_3;
 static B4R::B4RESPWiFi be_gann5_3;
 static B4R::WiFiSocket be_gann6_3;
 static B4R::MqttClient be_gann7_3;
-static B4R::MqttConnectOptions be_gann8_3;
-static B4R::B4RString be_gann9_5;
-static B4R::B4RString be_gann10_5;
+static B4R::B4RString be_gann8_5;
+static B4R::B4RESP8266 be_gann10_3;
 static B4R::B4RString be_gann11_5;
-static B4R::B4RESP8266 be_gann13_3;
-static B4R::B4RString be_gann14_5;
-static B4R::B4RString be_gann15_5;
-static B4R::Pin be_gann16_3;
-static B4R::D1Pins be_gann17_3;
-static B4R::ByteConverter be_gann25_3;
-static B4R::B4RESP8266TimeTools be_gann27_3;
+static B4R::B4RString be_gann12_5;
+static B4R::Pin be_gann13_3;
+static B4R::D1Pins be_gann14_3;
+static B4R::ByteConverter be_gann22_3;
+static B4R::B4RESP8266TimeTools be_gann24_3;
 
 
  #include "DHTesp.h"
@@ -128,8 +122,6 @@ _connecttowifi();
 _clientid = B4R::B4RString::fromNumber((Long)(Common_Rnd((Long) (0),(Long) (999999999))));
  //BA.debugLineNum = 92;BA.debugLine="MQTT.Initialize2(WiFiStr.stream, MQTTHostName, MQ";
 b4r_main::_mqtt->Initialize2(b4r_main::_wifistr->getStream(),b4r_main::_mqtthostname,(UInt) (b4r_main::_mqttport),_clientid,_mqtt_messagearrived,_mqtt_disconnected);
- //BA.debugLineNum = 93;BA.debugLine="MQTTOpt.Initialize(MQTTUser, MQTTPassword)";
-b4r_main::_mqttopt->Initialize(b4r_main::_mqttuser,b4r_main::_mqttpassword);
  //BA.debugLineNum = 94;BA.debugLine="MQTT_Connect(0)";
 _mqtt_connect((Byte) (0));
  //BA.debugLineNum = 97;BA.debugLine="DHT22pin.Initialize(d3pins.D3, DHT22pin.MODE_INPU";
@@ -139,110 +131,108 @@ B4R::StackMemory::cp = cp;
 }
 void b4r_main::_connecttowifi(){
 const UInt cp = B4R::StackMemory::cp;
- //BA.debugLineNum = 143;BA.debugLine="Sub ConnectToWifi";
- //BA.debugLineNum = 144;BA.debugLine="Log(\"Connecting to WiFi\")";
-B4R::Common::LogHelper(1,102,F("Connecting to WiFi"));
- //BA.debugLineNum = 145;BA.debugLine="If WiFi.Connect2(WiFiSSID, WiFiPassword) = False";
-if (b4r_main::_wifi->Connect2(b4r_main::_wifissid,b4r_main::_wifipassword)==Common_False) { 
- //BA.debugLineNum = 146;BA.debugLine="ConnectToWifi";
-_connecttowifi();
- };
- //BA.debugLineNum = 149;BA.debugLine="If WiFi.IsConnected Then";
+ //BA.debugLineNum = 146;BA.debugLine="Sub ConnectToWifi";
+ //BA.debugLineNum = 148;BA.debugLine="If WiFi.IsConnected Then";
 if (b4r_main::_wifi->getIsConnected()) { 
- //BA.debugLineNum = 150;BA.debugLine="Log(\"Connected to \",WiFiSSID,\" network, Local IP";
+ //BA.debugLineNum = 149;BA.debugLine="Log(\"Connected to \",WiFiSSID,\" network, Local IP";
 B4R::Common::LogHelper(4,102,F("Connected to "),101,b4r_main::_wifissid->data,102,F(" network, Local IP "),101,b4r_main::_wifi->getLocalIp()->data);
- //BA.debugLineNum = 153;BA.debugLine="TimeIsAvailable";
-_timeisavailable();
  }else {
- //BA.debugLineNum = 155;BA.debugLine="Log(\"Not Connected to WiFi\")";
-B4R::Common::LogHelper(1,102,F("Not Connected to WiFi"));
- //BA.debugLineNum = 156;BA.debugLine="ConnectToWifi";
+ //BA.debugLineNum = 151;BA.debugLine="Log(\"Connecting to WiFi\")";
+B4R::Common::LogHelper(1,102,F("Connecting to WiFi"));
+ //BA.debugLineNum = 152;BA.debugLine="If WiFi.Connect2(WiFiSSID, WiFiPassword) = False";
+if (b4r_main::_wifi->Connect2(b4r_main::_wifissid,b4r_main::_wifipassword)==Common_False) { 
+ //BA.debugLineNum = 153;BA.debugLine="ConnectToWifi";
 _connecttowifi();
  };
- //BA.debugLineNum = 158;BA.debugLine="End Sub";
+ };
+ //BA.debugLineNum = 156;BA.debugLine="End Sub";
 B4R::StackMemory::cp = cp;
 }
 void b4r_main::_mqtt_connect(Byte _unused){
 const UInt cp = B4R::StackMemory::cp;
-B4R::B4RString be_ann54_4;
-B4R::B4RString be_ann55_4;
+B4R::B4RString be_ann51_4;
+B4R::B4RString be_ann52_4;
  //BA.debugLineNum = 100;BA.debugLine="Sub MQTT_Connect(Unused As Byte)";
  //BA.debugLineNum = 101;BA.debugLine="If WiFi.IsConnected = False Then";
 if (b4r_main::_wifi->getIsConnected()==Common_False) { 
  //BA.debugLineNum = 102;BA.debugLine="ConnectToWifi";
 _connecttowifi();
  };
- //BA.debugLineNum = 105;BA.debugLine="If MQTT.Connect = False Then";
-if (b4r_main::_mqtt->Connect()==Common_False) { 
- //BA.debugLineNum = 106;BA.debugLine="Log(\"Connecting to broker\")";
+ //BA.debugLineNum = 105;BA.debugLine="Log(\"Connecting to broker\")";
 B4R::Common::LogHelper(1,102,F("Connecting to broker"));
- //BA.debugLineNum = 107;BA.debugLine="MQTT.Connect2(MQTTOpt)";
-b4r_main::_mqtt->Connect2(b4r_main::_mqttopt);
- //BA.debugLineNum = 108;BA.debugLine="CallSubPlus(\"MQTT_Connect\", 1000, 0)";
+ //BA.debugLineNum = 107;BA.debugLine="If MQTT.Connect = False Then";
+if (b4r_main::_mqtt->Connect()==Common_False) { 
+ //BA.debugLineNum = 108;BA.debugLine="Log(\"Not connected to broker\")";
+B4R::Common::LogHelper(1,102,F("Not connected to broker"));
+ //BA.debugLineNum = 109;BA.debugLine="MQTT.Connect";
+b4r_main::_mqtt->Connect();
+ //BA.debugLineNum = 110;BA.debugLine="CallSubPlus(\"MQTT_Connect\", 1000, 0)";
 B4R::__c->CallSubPlus(_mqtt_connect,(ULong) (1000),(Byte) (0));
  }else {
- //BA.debugLineNum = 110;BA.debugLine="pin16.DigitalWrite(False)";
+ //BA.debugLineNum = 112;BA.debugLine="pin16.DigitalWrite(False)";
 b4r_main::_pin16->DigitalWrite(Common_False);
- //BA.debugLineNum = 111;BA.debugLine="Log(\"Connected to broker\")";
+ //BA.debugLineNum = 113;BA.debugLine="Log(\"Connected to broker\")";
 B4R::Common::LogHelper(1,102,F("Connected to broker"));
- //BA.debugLineNum = 112;BA.debugLine="MQTT.Subscribe(\"TempHumidBasement\", 0)";
-b4r_main::_mqtt->Subscribe(be_ann54_4.wrap("TempHumidBasement"),(Byte) (0));
- //BA.debugLineNum = 113;BA.debugLine="MQTT.Subscribe(\"HumidityAddValue\", 0)";
-b4r_main::_mqtt->Subscribe(be_ann55_4.wrap("HumidityAddValue"),(Byte) (0));
+ //BA.debugLineNum = 114;BA.debugLine="MQTT.Subscribe(\"TempHumidBasement\", 0)";
+b4r_main::_mqtt->Subscribe(be_ann51_4.wrap("TempHumidBasement"),(Byte) (0));
+ //BA.debugLineNum = 115;BA.debugLine="MQTT.Subscribe(\"HumidityAddValue\", 0)";
+b4r_main::_mqtt->Subscribe(be_ann52_4.wrap("HumidityAddValue"),(Byte) (0));
+ //BA.debugLineNum = 116;BA.debugLine="ReadSensor";
+_readsensor();
  };
- //BA.debugLineNum = 115;BA.debugLine="End Sub";
+ //BA.debugLineNum = 118;BA.debugLine="End Sub";
 B4R::StackMemory::cp = cp;
 }
 void b4r_main::_mqtt_disconnected(){
 const UInt cp = B4R::StackMemory::cp;
- //BA.debugLineNum = 136;BA.debugLine="Sub mqtt_Disconnected";
- //BA.debugLineNum = 137;BA.debugLine="pin16.DigitalWrite(True)";
+ //BA.debugLineNum = 139;BA.debugLine="Sub mqtt_Disconnected";
+ //BA.debugLineNum = 140;BA.debugLine="pin16.DigitalWrite(True)";
 b4r_main::_pin16->DigitalWrite(Common_True);
- //BA.debugLineNum = 138;BA.debugLine="Log(\"Disconnected from broker\")";
+ //BA.debugLineNum = 141;BA.debugLine="Log(\"Disconnected from broker\")";
 B4R::Common::LogHelper(1,102,F("Disconnected from broker"));
- //BA.debugLineNum = 139;BA.debugLine="MQTT.Close";
+ //BA.debugLineNum = 142;BA.debugLine="MQTT.Close";
 b4r_main::_mqtt->Close();
- //BA.debugLineNum = 140;BA.debugLine="MQTT_Connect(0)";
+ //BA.debugLineNum = 143;BA.debugLine="MQTT_Connect(0)";
 _mqtt_connect((Byte) (0));
- //BA.debugLineNum = 141;BA.debugLine="End Sub";
+ //BA.debugLineNum = 144;BA.debugLine="End Sub";
 B4R::StackMemory::cp = cp;
 }
 void b4r_main::_mqtt_messagearrived(B4R::B4RString* _topic,B4R::Array* _payload){
 const UInt cp = B4R::StackMemory::cp;
-B4R::Object be_ann60_8;
-B4R::B4RString be_ann61_3;
-B4R::B4RString be_ann62_3;
-B4R::B4RString be_ann63_4;
-B4R::B4RString be_ann63_6;
-B4R::B4RString be_ann65_3;
-B4R::B4RString be_ann68_3;
- //BA.debugLineNum = 117;BA.debugLine="Sub mqtt_MessageArrived (Topic As String, Payload(";
- //BA.debugLineNum = 118;BA.debugLine="pin16.DigitalWrite(False)";
+B4R::Object be_ann58_8;
+B4R::B4RString be_ann59_3;
+B4R::B4RString be_ann60_3;
+B4R::B4RString be_ann61_4;
+B4R::B4RString be_ann61_6;
+B4R::B4RString be_ann63_3;
+B4R::B4RString be_ann66_3;
+ //BA.debugLineNum = 120;BA.debugLine="Sub mqtt_MessageArrived (Topic As String, Payload(";
+ //BA.debugLineNum = 121;BA.debugLine="pin16.DigitalWrite(False)";
 b4r_main::_pin16->DigitalWrite(Common_False);
- //BA.debugLineNum = 119;BA.debugLine="Log(\"Message arrived. Topic=\", Topic, \" Payload=\"";
-B4R::Common::LogHelper(4,102,F("Message arrived. Topic="),101,_topic->data,102,F(" Payload="),100,be_ann60_8.wrapPointer(_payload));
- //BA.debugLineNum = 121;BA.debugLine="If Topic = \"TempHumidBasement\" Then";
-if ((_topic)->equals(be_ann61_3.wrap("TempHumidBasement"))) { 
- //BA.debugLineNum = 122;BA.debugLine="If Payload = \"Restart controller\" Then";
-if ((_payload)->equals((be_ann62_3.wrap("Restart controller"))->GetBytes())) { 
- //BA.debugLineNum = 123;BA.debugLine="MQTT.Publish(\"TempHumidBasement\",\"*Restarting r";
-b4r_main::_mqtt->Publish(be_ann63_4.wrap("TempHumidBasement"),(be_ann63_6.wrap("*Restarting relay by remote"))->GetBytes());
- //BA.debugLineNum = 124;BA.debugLine="ESP.Restart";
+ //BA.debugLineNum = 122;BA.debugLine="Log(\"Message arrived. Topic=\", Topic, \" Payload=\"";
+B4R::Common::LogHelper(4,102,F("Message arrived. Topic="),101,_topic->data,102,F(" Payload="),100,be_ann58_8.wrapPointer(_payload));
+ //BA.debugLineNum = 124;BA.debugLine="If Topic = \"TempHumidBasement\" Then";
+if ((_topic)->equals(be_ann59_3.wrap("TempHumidBasement"))) { 
+ //BA.debugLineNum = 125;BA.debugLine="If Payload = \"Restart controller\" Then";
+if ((_payload)->equals((be_ann60_3.wrap("Restart controller"))->GetBytes())) { 
+ //BA.debugLineNum = 126;BA.debugLine="MQTT.Publish(\"TempHumidBasement\",\"*Restarting r";
+b4r_main::_mqtt->Publish(be_ann61_4.wrap("TempHumidBasement"),(be_ann61_6.wrap("*Restarting relay by remote"))->GetBytes());
+ //BA.debugLineNum = 127;BA.debugLine="ESP.Restart";
 b4r_main::_esp->Restart();
- }else if((_payload)->equals((be_ann65_3.wrap("Read weather"))->GetBytes())) { 
- //BA.debugLineNum = 126;BA.debugLine="ReadWeather(1)";
+ }else if((_payload)->equals((be_ann63_3.wrap("Read weather"))->GetBytes())) { 
+ //BA.debugLineNum = 129;BA.debugLine="ReadWeather(1)";
 _readweather((Byte) (1));
  };
- }else if((_topic)->equals(be_ann68_3.wrap("HumidityAddValue"))) { 
- //BA.debugLineNum = 129;BA.debugLine="DHT22HumidityAddValue = bc.StringFromBytes(Paylo";
+ }else if((_topic)->equals(be_ann66_3.wrap("HumidityAddValue"))) { 
+ //BA.debugLineNum = 132;BA.debugLine="DHT22HumidityAddValue = bc.StringFromBytes(Paylo";
 b4r_main::_dht22humidityaddvalue = (Double)(atof(b4r_main::_bc->StringFromBytes(_payload)->data));
- //BA.debugLineNum = 130;BA.debugLine="If IsNumber(DHT22HumidityAddValue) = False Then";
+ //BA.debugLineNum = 133;BA.debugLine="If IsNumber(DHT22HumidityAddValue) = False Then";
 if (B4R::__c->IsNumber(B4R::B4RString::fromNumber((Double)(b4r_main::_dht22humidityaddvalue)))==Common_False) { 
- //BA.debugLineNum = 131;BA.debugLine="DHT22HumidityAddValue = 0";
+ //BA.debugLineNum = 134;BA.debugLine="DHT22HumidityAddValue = 0";
 b4r_main::_dht22humidityaddvalue = 0;
  };
  };
- //BA.debugLineNum = 134;BA.debugLine="End Sub";
+ //BA.debugLineNum = 137;BA.debugLine="End Sub";
 B4R::StackMemory::cp = cp;
 }
 
@@ -269,26 +259,20 @@ b4r_main::_wifi = &be_gann5_3;
 b4r_main::_wifistr = &be_gann6_3;
  //BA.debugLineNum = 52;BA.debugLine="Private MQTT As MqttClient";
 b4r_main::_mqtt = &be_gann7_3;
- //BA.debugLineNum = 53;BA.debugLine="Private MQTTOpt As MqttConnectOptions";
-b4r_main::_mqttopt = &be_gann8_3;
- //BA.debugLineNum = 54;BA.debugLine="Private MQTTUser As String = \"vynckfaq\"";
-b4r_main::_mqttuser = be_gann9_5.wrap("vynckfaq");
- //BA.debugLineNum = 55;BA.debugLine="Private MQTTPassword As String = \"KHSV1Q1qSUUY\"";
-b4r_main::_mqttpassword = be_gann10_5.wrap("KHSV1Q1qSUUY");
- //BA.debugLineNum = 56;BA.debugLine="Private MQTTHostName As String = \"m14.cloudmqtt.c";
-b4r_main::_mqtthostname = be_gann11_5.wrap("m14.cloudmqtt.com");
- //BA.debugLineNum = 57;BA.debugLine="Private MQTTPort As Int = 11816";
-b4r_main::_mqttport = 11816;
+ //BA.debugLineNum = 56;BA.debugLine="Private MQTTHostName As String = \"broker.hivemq.c";
+b4r_main::_mqtthostname = be_gann8_5.wrap("broker.hivemq.com");
+ //BA.debugLineNum = 57;BA.debugLine="Private MQTTPort As Int = 1883";
+b4r_main::_mqttport = 1883;
  //BA.debugLineNum = 58;BA.debugLine="Private ESP As ESP8266";
-b4r_main::_esp = &be_gann13_3;
- //BA.debugLineNum = 59;BA.debugLine="Private WiFiSSID As String = \"RiseAboveThisHome\"";
-b4r_main::_wifissid = be_gann14_5.wrap("RiseAboveThisHome");
+b4r_main::_esp = &be_gann10_3;
+ //BA.debugLineNum = 59;BA.debugLine="Private WiFiSSID As String = \"InternetOfThings\"";
+b4r_main::_wifissid = be_gann11_5.wrap("InternetOfThings");
  //BA.debugLineNum = 60;BA.debugLine="Private WiFiPassword As String = \"SteelReserve\"";
-b4r_main::_wifipassword = be_gann15_5.wrap("SteelReserve");
+b4r_main::_wifipassword = be_gann12_5.wrap("SteelReserve");
  //BA.debugLineNum = 61;BA.debugLine="Public DHT22pin As Pin                    ' ESP82";
-b4r_main::_dht22pin = &be_gann16_3;
+b4r_main::_dht22pin = &be_gann13_3;
  //BA.debugLineNum = 62;BA.debugLine="Private d3pins As D1Pins";
-b4r_main::_d3pins = &be_gann17_3;
+b4r_main::_d3pins = &be_gann14_3;
  //BA.debugLineNum = 63;BA.debugLine="Public DHT22Temp As Double";
 b4r_main::_dht22temp = 0;
  //BA.debugLineNum = 64;BA.debugLine="Public DHT22Hum As Double";
@@ -304,96 +288,96 @@ b4r_main::_dht22perception = 0;
  //BA.debugLineNum = 69;BA.debugLine="Public DHT22ComfortStatus As Int";
 b4r_main::_dht22comfortstatus = 0;
  //BA.debugLineNum = 70;BA.debugLine="Private bc As ByteConverter";
-b4r_main::_bc = &be_gann25_3;
+b4r_main::_bc = &be_gann22_3;
  //BA.debugLineNum = 71;BA.debugLine="Public DHT22HumidityAddValue As Double";
 b4r_main::_dht22humidityaddvalue = 0;
  //BA.debugLineNum = 72;BA.debugLine="Public timelib As ESPTimetools";
-b4r_main::_timelib = &be_gann27_3;
+b4r_main::_timelib = &be_gann24_3;
  //BA.debugLineNum = 73;BA.debugLine="Public timestamp As ULong";
 b4r_main::_timestamp = 0L;
  //BA.debugLineNum = 74;BA.debugLine="End Sub";
 }
+void b4r_main::_readsensor(){
+const UInt cp = B4R::StackMemory::cp;
+ //BA.debugLineNum = 197;BA.debugLine="Public Sub ReadSensor";
+ //BA.debugLineNum = 199;BA.debugLine="RunNative(\"setup\",Null)";
+Common_RunNative(setup,Common_Null);
+ //BA.debugLineNum = 200;BA.debugLine="ReadWeather(0)";
+_readweather((Byte) (0));
+ //BA.debugLineNum = 201;BA.debugLine="End Sub";
+B4R::StackMemory::cp = cp;
+}
 void b4r_main::_readweather(Byte _tag){
 const UInt cp = B4R::StackMemory::cp;
 B4R::B4RString* _localstate = B4R::B4RString::EMPTY;
-B4R::B4RString be_ann99_2;
-B4R::B4RString be_ann101_2;
-B4R::B4RString be_ann103_2;
-B4R::B4RString be_ann106_3;
-B4R::B4RString be_ann107_4;
+B4R::B4RString be_ann94_2;
+B4R::B4RString be_ann96_2;
+B4R::B4RString be_ann98_2;
+B4R::B4RString be_ann101_3;
+B4R::B4RString be_ann102_4;
 B4R::B4RString* _s = B4R::B4RString::EMPTY;
-B4R::B4RString be_ann111_12;
-B4R::B4RString be_ann111_16;
-B4R::B4RString be_ann111_20;
-B4R::B4RString be_ann111_24;
-B4R::B4RString be_ann111_28;
-B4R::B4RString be_ann111_32;
-B4R::B4RString be_ann111_36;
-B4R::B4RString be_ann111_54;
-B4R::B4RString be_ann111_72;
-B4R::B4RString be_ann111_90;
-B4R::B4RString be_ann111_108;
-B4R::B4RString be_ann111_126;
-B4R::B4RString* be_ann111_143e1[25];
-B4R::Array be_ann111_143e2;
-B4R::B4RString be_ann113_4;
- //BA.debugLineNum = 160;BA.debugLine="Sub ReadWeather(tag As Byte)";
- //BA.debugLineNum = 161;BA.debugLine="RunNative(\"ReadDHT22\",Null)";
+B4R::B4RString be_ann106_12;
+B4R::B4RString be_ann106_16;
+B4R::B4RString be_ann106_20;
+B4R::B4RString be_ann106_24;
+B4R::B4RString be_ann106_28;
+B4R::B4RString be_ann106_32;
+B4R::B4RString be_ann106_36;
+B4R::B4RString be_ann106_54;
+B4R::B4RString be_ann106_72;
+B4R::B4RString be_ann106_90;
+B4R::B4RString be_ann106_108;
+B4R::B4RString be_ann106_126;
+B4R::B4RString* be_ann106_143e1[25];
+B4R::Array be_ann106_143e2;
+B4R::B4RString be_ann108_4;
+ //BA.debugLineNum = 158;BA.debugLine="Sub ReadWeather(tag As Byte)";
+ //BA.debugLineNum = 159;BA.debugLine="RunNative(\"ReadDHT22\",Null)";
 Common_RunNative(ReadDHT22,Common_Null);
- //BA.debugLineNum = 163;BA.debugLine="Dim localstate As String";
+ //BA.debugLineNum = 161;BA.debugLine="Dim localstate As String";
 _localstate = B4R::B4RString::EMPTY;
- //BA.debugLineNum = 164;BA.debugLine="Select Case DHT22State";
+ //BA.debugLineNum = 162;BA.debugLine="Select Case DHT22State";
 switch (b4r_main::_dht22state) {
 case 0: {
- //BA.debugLineNum = 167;BA.debugLine="localstate = \"OK\"";
-_localstate = be_ann99_2.wrap("OK");
+ //BA.debugLineNum = 165;BA.debugLine="localstate = \"OK\"";
+_localstate = be_ann94_2.wrap("OK");
  break; }
 case 1: {
- //BA.debugLineNum = 170;BA.debugLine="localstate = \"TIMEOUT\"";
-_localstate = be_ann101_2.wrap("TIMEOUT");
+ //BA.debugLineNum = 168;BA.debugLine="localstate = \"TIMEOUT\"";
+_localstate = be_ann96_2.wrap("TIMEOUT");
  break; }
 case 2: {
- //BA.debugLineNum = 173;BA.debugLine="localstate = \"CHECKSUM\"";
-_localstate = be_ann103_2.wrap("CHECKSUM");
+ //BA.debugLineNum = 171;BA.debugLine="localstate = \"CHECKSUM\"";
+_localstate = be_ann98_2.wrap("CHECKSUM");
  break; }
 }
 ;
- //BA.debugLineNum = 176;BA.debugLine="If WiFi.IsConnected Then";
+ //BA.debugLineNum = 174;BA.debugLine="If WiFi.IsConnected Then";
 if (b4r_main::_wifi->getIsConnected()) { 
- //BA.debugLineNum = 177;BA.debugLine="If localstate = \"OK\" And IsNumber(DHT22Temp) The";
-if ((_localstate)->equals(be_ann106_3.wrap("OK")) && B4R::__c->IsNumber(B4R::B4RString::fromNumber((Double)(b4r_main::_dht22temp)))) { 
- //BA.debugLineNum = 179;BA.debugLine="timelib.initialize(\"pool.ntp.org\",0)";
-b4r_main::_timelib->initialize(be_ann107_4.wrap("pool.ntp.org"),0);
- //BA.debugLineNum = 180;BA.debugLine="timestamp = timelib.timestamp";
+ //BA.debugLineNum = 175;BA.debugLine="If localstate = \"OK\" And IsNumber(DHT22Temp) The";
+if ((_localstate)->equals(be_ann101_3.wrap("OK")) && B4R::__c->IsNumber(B4R::B4RString::fromNumber((Double)(b4r_main::_dht22temp)))) { 
+ //BA.debugLineNum = 177;BA.debugLine="timelib.initialize(\"pool.ntp.org\",0)";
+b4r_main::_timelib->initialize(be_ann102_4.wrap("pool.ntp.org"),0);
+ //BA.debugLineNum = 178;BA.debugLine="timestamp = timelib.timestamp";
 b4r_main::_timestamp = b4r_main::_timelib->timestamp();
- //BA.debugLineNum = 181;BA.debugLine="If timestamp <> 0 Then";
+ //BA.debugLineNum = 179;BA.debugLine="If timestamp <> 0 Then";
 if (b4r_main::_timestamp!=0) { 
- //BA.debugLineNum = 182;BA.debugLine="Dim s As String";
+ //BA.debugLineNum = 180;BA.debugLine="Dim s As String";
 _s = B4R::B4RString::EMPTY;
- //BA.debugLineNum = 183;BA.debugLine="s = JoinStrings(Array As String(localstate,\"|\"";
-_s = B4R::__c->JoinStrings(be_ann111_143e2.create(be_ann111_143e1,25,100,_localstate,be_ann111_12.wrap("|"),B4R::B4RString::fromNumber((Double)(b4r_main::_dht22temp)),be_ann111_16.wrap("|"),B4R::B4RString::fromNumber((Double)(b4r_main::_dht22hum)),be_ann111_20.wrap("|"),B4R::B4RString::fromNumber((Long)(b4r_main::_dht22perception)),be_ann111_24.wrap("|"),B4R::B4RString::fromNumber((Long)(b4r_main::_dht22comfortstatus)),be_ann111_28.wrap("|"),B4R::B4RString::fromNumber((Double)(b4r_main::_dht22heatindex)),be_ann111_32.wrap("|"),B4R::B4RString::fromNumber((Double)(b4r_main::_dht22dewpoint)),be_ann111_36.wrap("|"),B4R::__c->NumberFormat(b4r_main::_timelib->getyear(b4r_main::_timestamp),(Byte) (2),(Byte) (0)),be_ann111_54.wrap("-"),B4R::__c->NumberFormat(b4r_main::_timelib->getmonth(b4r_main::_timestamp),(Byte) (2),(Byte) (0)),be_ann111_72.wrap("-"),B4R::__c->NumberFormat(b4r_main::_timelib->getday(b4r_main::_timestamp),(Byte) (2),(Byte) (0)),be_ann111_90.wrap("|"),B4R::__c->NumberFormat(b4r_main::_timelib->gethour(b4r_main::_timestamp),(Byte) (2),(Byte) (0)),be_ann111_108.wrap(":"),B4R::__c->NumberFormat(b4r_main::_timelib->getminute(b4r_main::_timestamp),(Byte) (2),(Byte) (0)),be_ann111_126.wrap(":"),B4R::__c->NumberFormat(b4r_main::_timelib->getseconds(b4r_main::_timestamp),(Byte) (2),(Byte) (0))));
- //BA.debugLineNum = 187;BA.debugLine="Log(\"TempHumidBasement to MQTT: \",s)";
+ //BA.debugLineNum = 181;BA.debugLine="s = JoinStrings(Array As String(localstate,\"|\"";
+_s = B4R::__c->JoinStrings(be_ann106_143e2.create(be_ann106_143e1,25,100,_localstate,be_ann106_12.wrap("|"),B4R::B4RString::fromNumber((Double)(b4r_main::_dht22temp)),be_ann106_16.wrap("|"),B4R::B4RString::fromNumber((Double)(b4r_main::_dht22hum)),be_ann106_20.wrap("|"),B4R::B4RString::fromNumber((Long)(b4r_main::_dht22perception)),be_ann106_24.wrap("|"),B4R::B4RString::fromNumber((Long)(b4r_main::_dht22comfortstatus)),be_ann106_28.wrap("|"),B4R::B4RString::fromNumber((Double)(b4r_main::_dht22heatindex)),be_ann106_32.wrap("|"),B4R::B4RString::fromNumber((Double)(b4r_main::_dht22dewpoint)),be_ann106_36.wrap("|"),B4R::__c->NumberFormat(b4r_main::_timelib->getyear(b4r_main::_timestamp),(Byte) (2),(Byte) (0)),be_ann106_54.wrap("-"),B4R::__c->NumberFormat(b4r_main::_timelib->getmonth(b4r_main::_timestamp),(Byte) (2),(Byte) (0)),be_ann106_72.wrap("-"),B4R::__c->NumberFormat(b4r_main::_timelib->getday(b4r_main::_timestamp),(Byte) (2),(Byte) (0)),be_ann106_90.wrap("|"),B4R::__c->NumberFormat(b4r_main::_timelib->gethour(b4r_main::_timestamp),(Byte) (2),(Byte) (0)),be_ann106_108.wrap(":"),B4R::__c->NumberFormat(b4r_main::_timelib->getminute(b4r_main::_timestamp),(Byte) (2),(Byte) (0)),be_ann106_126.wrap(":"),B4R::__c->NumberFormat(b4r_main::_timelib->getseconds(b4r_main::_timestamp),(Byte) (2),(Byte) (0))));
+ //BA.debugLineNum = 185;BA.debugLine="Log(\"TempHumidBasement to MQTT: \",s)";
 B4R::Common::LogHelper(2,102,F("TempHumidBasement to MQTT: "),101,_s->data);
- //BA.debugLineNum = 188;BA.debugLine="MQTT.Publish(\"TempHumidBasement\",s)";
-b4r_main::_mqtt->Publish(be_ann113_4.wrap("TempHumidBasement"),(_s)->GetBytes());
+ //BA.debugLineNum = 186;BA.debugLine="MQTT.Publish(\"TempHumidBasement\",s)";
+b4r_main::_mqtt->Publish(be_ann108_4.wrap("TempHumidBasement"),(_s)->GetBytes());
  };
  };
  };
- //BA.debugLineNum = 194;BA.debugLine="If tag = 0 Then";
+ //BA.debugLineNum = 192;BA.debugLine="If tag = 0 Then";
 if (_tag==0) { 
- //BA.debugLineNum = 195;BA.debugLine="CallSubPlus(\"ReadWeather\",5000,0)";
-B4R::__c->CallSubPlus(_readweather,(ULong) (5000),(Byte) (0));
+ //BA.debugLineNum = 193;BA.debugLine="CallSubPlus(\"ReadWeather\",60000,0)";
+B4R::__c->CallSubPlus(_readweather,(ULong) (60000),(Byte) (0));
  };
- //BA.debugLineNum = 197;BA.debugLine="End Sub";
-B4R::StackMemory::cp = cp;
-}
-void b4r_main::_timeisavailable(){
-const UInt cp = B4R::StackMemory::cp;
- //BA.debugLineNum = 199;BA.debugLine="Public Sub TimeIsAvailable";
- //BA.debugLineNum = 201;BA.debugLine="RunNative(\"setup\",Null)";
-Common_RunNative(setup,Common_Null);
- //BA.debugLineNum = 202;BA.debugLine="ReadWeather(0)";
-_readweather((Byte) (0));
- //BA.debugLineNum = 203;BA.debugLine="End Sub";
+ //BA.debugLineNum = 195;BA.debugLine="End Sub";
 B4R::StackMemory::cp = cp;
 }
