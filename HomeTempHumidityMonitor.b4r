@@ -96,6 +96,9 @@ Private Sub AppStart
 	Delay(3000)
 	Log("AppStart")
 	
+	Dim bb() As Byte = "BasementTempHumid"
+	RunNative("SetHostName", bb)
+	
 	' Pin 2 is the blue LED
 	' Pin 16 is the red LED
 	' D6 = pin 12 is the logic/signal pin. Use 3.3v pin of Node MCU.
@@ -112,6 +115,7 @@ Private Sub AppStart
 	
 	' Initialize pin D3 for DHT22
 	DHT22pin.Initialize(d3pins.D3, DHT22pin.MODE_INPUT)
+	
 End Sub
 
 Sub MQTT_Connect(Unused As Byte)
@@ -226,9 +230,11 @@ void setup(B4R::Object* o){
 	dht22.setup(DHT22Pin, DHTesp::DHT22);
 }
 
- void SetSTA(B4R::Object* o) {
-   WiFi.mode(WIFI_STA);
-}
+  void SetHostName(B4R::Object* o) {
+   B4R::Array* b = (B4R::Array*)B4R::Object::toPointer(o);
+   char* c = (char*)b->data;
+   WiFi.hostname(c);
+  }
 
 void ReadDHT22(B4R::Object* o) {
 	 b4r_main::_dht22state = dht22.getStatus();
