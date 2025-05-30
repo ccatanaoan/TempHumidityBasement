@@ -98,6 +98,7 @@ Private Sub AppStart
 	
 	Dim bb() As Byte = "BasementTempHumid"
 	RunNative("SetHostName", bb)
+	RunNative("stopAP", Null)
 	
 	' Pin 2 is the blue LED
 	' Pin 16 is the red LED
@@ -124,6 +125,7 @@ Sub MQTT_Connect(Unused As Byte)
 	End If
 	
 	If MQTT.Connect = False Then
+		pin16.DigitalWrite(True)
 		Log("Not connected to broker")
 		MQTT.Connect
 		CallSubPlus("MQTT_Connect", 1000, 0)
@@ -137,7 +139,6 @@ Sub MQTT_Connect(Unused As Byte)
 End Sub
 
 Sub mqtt_MessageArrived (Topic As String, Payload() As Byte)
-	pin16.DigitalWrite(False)
 	Log("Message arrived. Topic=", Topic, " Payload=", Payload)
 	
 	If Topic = "TempHumidBasement" Then
@@ -166,6 +167,7 @@ Sub ConnectToWifi
 	If WiFi.IsConnected Then
 		Log("Connected to ",WiFiSSID," network, Local IP ", WiFi.LocalIp)
 	Else
+		pin16.DigitalWrite(True)
 		Log("Connecting to WiFi")
 		If WiFi.Connect2(WiFiSSID, WiFiPassword) = False Then
 			ConnectToWifi
@@ -190,6 +192,7 @@ Sub ReadWeather(tag As Byte)
 	End Select
 
 	If WiFi.IsConnected Then
+		Log("Temp from DHT22: ",DHT22Temp)
 		If localstate = "OK" And IsNumber(DHT22Temp) Then
 			' Get the time
 			timelib.initialize("pool.ntp.org",0) 
@@ -230,11 +233,15 @@ void setup(B4R::Object* o){
 	dht22.setup(DHT22Pin, DHTesp::DHT22);
 }
 
-  void SetHostName(B4R::Object* o) {
-   B4R::Array* b = (B4R::Array*)B4R::Object::toPointer(o);
-   char* c = (char*)b->data;
-   WiFi.hostname(c);
-  }
+void SetHostName(B4R::Object* o) {
+	B4R::Array* b = (B4R::Array*)B4R::Object::toPointer(o);
+	char* c = (char*)b->data;
+	WiFi.hostname(c);
+}
+
+void stopAP (B4R::Object* u) {
+	WiFi.softAPdisconnect(true);
+}
 
 void ReadDHT22(B4R::Object* o) {
 	 b4r_main::_dht22state = dht22.getStatus();
