@@ -23272,7 +23272,7 @@ END GROUP
                 0x40106c04                _text_end = ABSOLUTE (.)
                 0x40106c04                _etext = .
 
-.rodata         0x3ffe8500      0x448
+.rodata         0x3ffe8500      0x444
                 0x3ffe8500                _rodata_start = ABSOLUTE (.)
  *(.sdk.version)
  .sdk.version   0x3ffe8500       0x13 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib/NONOSDK22x_190703\libmain.a(app_main.o)
@@ -23298,209 +23298,209 @@ END GROUP
                 0x3ffe865c       0x32 C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\sketch\B4RCore.cpp.o
                                  0x33 (size before relaxing)
  .rodata.str1.1
-                0x3ffe868e       0xc7 C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\sketch\b4r_main.cpp.o
-                                 0xc9 (size before relaxing)
+                0x3ffe868e       0xc3 C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\sketch\b4r_main.cpp.o
+                                 0xc5 (size before relaxing)
  .rodata.CSWTCH$105
-                0x3ffe8755        0x6 C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\libraries\ESP8266WiFi\ESP8266WiFi.a(ESP8266WiFiSTA.cpp.o)
+                0x3ffe8751        0x6 C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\libraries\ESP8266WiFi\ESP8266WiFi.a(ESP8266WiFiSTA.cpp.o)
  .rodata._ZL9monthDays
-                0x3ffe875b        0xc C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\libraries\TimeLib\Time.cpp.o
+                0x3ffe8757        0xc C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\libraries\TimeLib\Time.cpp.o
  .rodata.str1.1
-                0x3ffe8767       0x11 C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\core\core.a(Print.cpp.o)
+                0x3ffe8763       0x11 C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\core\core.a(Print.cpp.o)
  .rodata.str1.4
-                0x3ffe8778        0xc C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib/NONOSDK22x_190703\libpp.a(pm_for_bcn_only_mode.o)
+                0x3ffe8774        0xc C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib/NONOSDK22x_190703\libpp.a(pm_for_bcn_only_mode.o)
  .rodata.str1.4
-                0x3ffe8784        0x8 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib/NONOSDK22x_190703\libpp.a(pp.o)
+                0x3ffe8780        0x8 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib/NONOSDK22x_190703\libpp.a(pp.o)
                                  0x10 (size before relaxing)
  .rodata.str1.4
-                0x3ffe878c        0x4 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib/NONOSDK22x_190703\libpp.a(wdev.o)
+                0x3ffe8788        0x4 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib/NONOSDK22x_190703\libpp.a(wdev.o)
                                   0xc (size before relaxing)
  .rodata.str1.4
-                0x3ffe8790        0x4 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib/NONOSDK22x_190703\libpp.a(lmac.o)
+                0x3ffe878c        0x4 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib/NONOSDK22x_190703\libpp.a(lmac.o)
                                   0xc (size before relaxing)
  .rodata.str1.4
-                0x3ffe8794        0x3 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib/NONOSDK22x_190703\libpp.a(pm.o)
+                0x3ffe8790        0x3 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib/NONOSDK22x_190703\libpp.a(pm.o)
                                   0xb (size before relaxing)
- *fill*         0x3ffe8797        0x1 
+ *fill*         0x3ffe8793        0x1 
  .rodata.str1.4
-                0x3ffe8798        0x3 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib/NONOSDK22x_190703\libnet80211.a(ieee80211_hostap.o)
+                0x3ffe8794        0x3 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib/NONOSDK22x_190703\libnet80211.a(ieee80211_hostap.o)
                                   0x8 (size before relaxing)
  .rodata.str1.4
-                0x3ffe879b        0x4 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib/NONOSDK22x_190703\libnet80211.a(ieee80211_sta.o)
+                0x3ffe8797        0x4 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib/NONOSDK22x_190703\libnet80211.a(ieee80211_sta.o)
  .rodata.str1.4
-                0x3ffe879b        0x4 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib/NONOSDK22x_190703\libnet80211.a(ieee80211_ie_vendor.o)
+                0x3ffe8797        0x4 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib/NONOSDK22x_190703\libnet80211.a(ieee80211_ie_vendor.o)
  .rodata.str1.1
-                0x3ffe879b        0x1 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(lwip-esp.o)
+                0x3ffe8797        0x1 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(lwip-esp.o)
  .rodata.CSWTCH$19
-                0x3ffe879b       0x10 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(lwip-esp.o)
+                0x3ffe8797       0x10 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(lwip-esp.o)
  .rodata.CSWTCH$17
-                0x3ffe87ab       0x11 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(lwip-esp.o)
+                0x3ffe87a7       0x11 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(lwip-esp.o)
  .rodata.ethbroadcast
-                0x3ffe87bc        0x6 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(lwip-esp.o)
-                0x3ffe87bc                ethbroadcast
+                0x3ffe87b8        0x6 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(lwip-esp.o)
+                0x3ffe87b8                ethbroadcast
  .rodata.CSWTCH$14
-                0x3ffe87c2       0x11 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(lwip-git.o)
+                0x3ffe87be       0x11 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(lwip-git.o)
  .rodata.CSWTCH$11
-                0x3ffe87d3       0x11 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(lwip-git.o)
+                0x3ffe87cf       0x11 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(lwip-git.o)
  .rodata.str1.1
-                0x3ffe87e4       0x29 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(esp-dhcpserver.o)
+                0x3ffe87e0       0x29 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(esp-dhcpserver.o)
  .rodata.ethzero
-                0x3ffe880d        0x6 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(ethernet.o)
-                0x3ffe880d                ethzero
+                0x3ffe8809        0x6 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(ethernet.o)
+                0x3ffe8809                ethzero
  .rodata.ethbroadcast_LWIP2
-                0x3ffe8813        0x6 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(ethernet.o)
-                0x3ffe8813                ethbroadcast_LWIP2
- *fill*         0x3ffe8819        0x3 
+                0x3ffe880f        0x6 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(ethernet.o)
+                0x3ffe880f                ethbroadcast_LWIP2
+ *fill*         0x3ffe8815        0x3 
  .rodata.memp_pools
-                0x3ffe881c       0x2c C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(memp.o)
-                0x3ffe881c                memp_pools
+                0x3ffe8818       0x2c C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(memp.o)
+                0x3ffe8818                memp_pools
  .rodata.memp_PBUF_POOL
-                0x3ffe8848        0x2 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(memp.o)
-                0x3ffe8848                memp_PBUF_POOL
+                0x3ffe8844        0x2 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(memp.o)
+                0x3ffe8844                memp_PBUF_POOL
  .rodata.memp_PBUF
-                0x3ffe884a        0x2 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(memp.o)
-                0x3ffe884a                memp_PBUF
+                0x3ffe8846        0x2 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(memp.o)
+                0x3ffe8846                memp_PBUF
  .rodata.memp_SYS_TIMEOUT
-                0x3ffe884c        0x2 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(memp.o)
-                0x3ffe884c                memp_SYS_TIMEOUT
+                0x3ffe8848        0x2 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(memp.o)
+                0x3ffe8848                memp_SYS_TIMEOUT
  .rodata.memp_IGMP_GROUP
-                0x3ffe884e        0x2 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(memp.o)
-                0x3ffe884e                memp_IGMP_GROUP
+                0x3ffe884a        0x2 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(memp.o)
+                0x3ffe884a                memp_IGMP_GROUP
  .rodata.memp_ARP_QUEUE
-                0x3ffe8850        0x2 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(memp.o)
-                0x3ffe8850                memp_ARP_QUEUE
+                0x3ffe884c        0x2 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(memp.o)
+                0x3ffe884c                memp_ARP_QUEUE
  .rodata.memp_REASSDATA
-                0x3ffe8852        0x2 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(memp.o)
-                0x3ffe8852                memp_REASSDATA
+                0x3ffe884e        0x2 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(memp.o)
+                0x3ffe884e                memp_REASSDATA
  .rodata.memp_TCP_SEG
-                0x3ffe8854        0x2 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(memp.o)
-                0x3ffe8854                memp_TCP_SEG
+                0x3ffe8850        0x2 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(memp.o)
+                0x3ffe8850                memp_TCP_SEG
  .rodata.memp_TCP_PCB_LISTEN
-                0x3ffe8856        0x2 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(memp.o)
-                0x3ffe8856                memp_TCP_PCB_LISTEN
+                0x3ffe8852        0x2 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(memp.o)
+                0x3ffe8852                memp_TCP_PCB_LISTEN
  .rodata.memp_TCP_PCB
-                0x3ffe8858        0x2 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(memp.o)
-                0x3ffe8858                memp_TCP_PCB
+                0x3ffe8854        0x2 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(memp.o)
+                0x3ffe8854                memp_TCP_PCB
  .rodata.memp_UDP_PCB
-                0x3ffe885a        0x2 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(memp.o)
-                0x3ffe885a                memp_UDP_PCB
+                0x3ffe8856        0x2 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(memp.o)
+                0x3ffe8856                memp_UDP_PCB
  .rodata.memp_RAW_PCB
-                0x3ffe885c        0x2 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(memp.o)
-                0x3ffe885c                memp_RAW_PCB
- *fill*         0x3ffe885e        0x2 
+                0x3ffe8858        0x2 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(memp.o)
+                0x3ffe8858                memp_RAW_PCB
+ *fill*         0x3ffe885a        0x2 
  .rodata.tcp_pcb_lists
-                0x3ffe8860       0x10 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(tcp.o)
-                0x3ffe8860                tcp_pcb_lists
+                0x3ffe885c       0x10 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(tcp.o)
+                0x3ffe885c                tcp_pcb_lists
  .rodata.tcp_persist_backoff
-                0x3ffe8870        0x7 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(tcp.o)
+                0x3ffe886c        0x7 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(tcp.o)
  .rodata.tcp_backoff
-                0x3ffe8877        0xd C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(tcp.o)
+                0x3ffe8873        0xd C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(tcp.o)
  .rodata.str1.1
-                0x3ffe8884        0x7 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(dns.o)
- *fill*         0x3ffe888b        0x1 
+                0x3ffe8880        0x7 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(dns.o)
+ *fill*         0x3ffe8887        0x1 
  .rodata.dns_mquery_v4group
-                0x3ffe888c        0x4 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(dns.o)
-                0x3ffe888c                dns_mquery_v4group
+                0x3ffe8888        0x4 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(dns.o)
+                0x3ffe8888                dns_mquery_v4group
  .rodata.dhcp_discover_request_options
-                0x3ffe8890        0x5 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(dhcp.o)
- *fill*         0x3ffe8895        0x3 
+                0x3ffe888c        0x5 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(dhcp.o)
+ *fill*         0x3ffe8891        0x3 
  .rodata.ip_addr_broadcast
-                0x3ffe8898        0x4 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(ip4_addr.o)
-                0x3ffe8898                ip_addr_broadcast
+                0x3ffe8894        0x4 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(ip4_addr.o)
+                0x3ffe8894                ip_addr_broadcast
  .rodata.ip_addr_any
-                0x3ffe889c        0x4 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(ip4_addr.o)
-                0x3ffe889c                ip_addr_any
+                0x3ffe8898        0x4 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\liblwip2-536-feat.a(ip4_addr.o)
+                0x3ffe8898                ip_addr_any
  .rodata.str1.4
-                0x3ffe88a0        0x4 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib/NONOSDK22x_190703\libmain.a(app_main.o)
+                0x3ffe889c        0x4 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib/NONOSDK22x_190703\libmain.a(app_main.o)
                                   0xc (size before relaxing)
  .rodata.str1.4
-                0x3ffe88a4        0x4 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib/NONOSDK22x_190703\libmain.a(ets_timer.o)
+                0x3ffe88a0        0x4 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib/NONOSDK22x_190703\libmain.a(ets_timer.o)
                                   0xc (size before relaxing)
  .rodata._ZSt7nothrow
-                0x3ffe88a8        0x1 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\libstdc++.a(new_handler.o)
-                0x3ffe88a8                _ZSt7nothrow
+                0x3ffe88a4        0x1 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/lib\libstdc++.a(new_handler.o)
+                0x3ffe88a4                _ZSt7nothrow
  .rodata.str1.1
-                0x3ffe88a9        0x6 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/libc/xtensa-lx106-elf/lib\libm.a(lib_a-w_log10.o)
+                0x3ffe88a5        0x6 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/libc/xtensa-lx106-elf/lib\libm.a(lib_a-w_log10.o)
                                   0x7 (size before relaxing)
  .rodata.str1.1
-                0x3ffe88af        0x4 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/libc/xtensa-lx106-elf/lib\libm.a(lib_a-w_log.o)
+                0x3ffe88ab        0x4 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/libc/xtensa-lx106-elf/lib\libm.a(lib_a-w_log.o)
                                   0x5 (size before relaxing)
  .rodata.str1.1
-                0x3ffe88b3        0x4 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/libc/xtensa-lx106-elf/lib\libm.a(lib_a-w_pow.o)
+                0x3ffe88af        0x4 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/libc/xtensa-lx106-elf/lib\libm.a(lib_a-w_pow.o)
  .rodata.str1.1
-                0x3ffe88b7        0x5 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/libc/xtensa-lx106-elf/lib\libm.a(lib_a-w_sqrt.o)
+                0x3ffe88b3        0x5 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/libc/xtensa-lx106-elf/lib\libm.a(lib_a-w_sqrt.o)
  .rodata.str1.1
-                0x3ffe88bc        0x1 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/libc/xtensa-lx106-elf/lib\libm.a(lib_a-e_pow.o)
+                0x3ffe88b8        0x1 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/libc/xtensa-lx106-elf/lib\libm.a(lib_a-e_pow.o)
  .rodata.str1.1
-                0x3ffe88bc        0x2 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/libc/xtensa-lx106-elf/lib\libc.a(lib_a-impure.o)
+                0x3ffe88b8        0x2 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/libc/xtensa-lx106-elf/lib\libc.a(lib_a-impure.o)
  .rodata.str1.1
-                0x3ffe88be        0x8 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/libc/xtensa-lx106-elf/lib\libc.a(lib_a-nano-vfprintf_float.o)
+                0x3ffe88ba        0x8 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/libc/xtensa-lx106-elf/lib\libc.a(lib_a-nano-vfprintf_float.o)
                                  0x12 (size before relaxing)
  .rodata.str1.1
-                0x3ffe88c6        0x5 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/libc/xtensa-lx106-elf/lib\libc.a(lib_a-nano-vfscanf_float.o)
+                0x3ffe88c2        0x5 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/libc/xtensa-lx106-elf/lib\libc.a(lib_a-nano-vfscanf_float.o)
  .rodata.str1.1
-                0x3ffe88cb        0x5 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/libc/xtensa-lx106-elf/lib\libc.a(lib_a-strtod.o)
+                0x3ffe88c7        0x5 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/libc/xtensa-lx106-elf/lib\libc.a(lib_a-strtod.o)
                                   0xc (size before relaxing)
  .rodata.str1.1
-                0x3ffe88cb        0xd C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/libc/xtensa-lx106-elf/lib\libc.a(lib_a-dtoa.o)
+                0x3ffe88c7        0xd C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/libc/xtensa-lx106-elf/lib\libc.a(lib_a-dtoa.o)
                                   0xf (size before relaxing)
  .rodata.str1.1
-                0x3ffe88d8        0x6 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/libc/xtensa-lx106-elf/lib\libc.a(lib_a-locale.o)
+                0x3ffe88d4        0x6 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/libc/xtensa-lx106-elf/lib\libc.a(lib_a-locale.o)
                                   0xb (size before relaxing)
  .rodata.str1.1
-                0x3ffe88de       0x11 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/libc/xtensa-lx106-elf/lib\libc.a(lib_a-nano-svfprintf.o)
+                0x3ffe88da       0x11 C:\Users\Cloyd\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3/tools/sdk/libc/xtensa-lx106-elf/lib\libc.a(lib_a-nano-svfprintf.o)
  *(.gnu.linkonce.r.*)
  *(.rodata1)
-                0x3ffe88ef                __XT_EXCEPTION_TABLE__ = ABSOLUTE (.)
+                0x3ffe88eb                __XT_EXCEPTION_TABLE__ = ABSOLUTE (.)
  *(.xt_except_table)
  *(.gcc_except_table)
  *(.gnu.linkonce.e.*)
  *(.gnu.version_r)
  *(.eh_frame)
-                0x3ffe88f0                . = ((. + 0x3) & 0xfffffffc)
- *fill*         0x3ffe88ef        0x1 
-                0x3ffe88f0                __init_array_start = ABSOLUTE (.)
+                0x3ffe88ec                . = ((. + 0x3) & 0xfffffffc)
+ *fill*         0x3ffe88eb        0x1 
+                0x3ffe88ec                __init_array_start = ABSOLUTE (.)
  *crtbegin.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o) .ctors)
- .ctors         0x3ffe88f0        0x4 C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\sketch\B4RCore.cpp.o
- .ctors         0x3ffe88f4        0x4 C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\sketch\Scheduler.cpp.o
- .ctors         0x3ffe88f8        0x4 C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\sketch\b4r_main.cpp.o
- .ctors         0x3ffe88fc        0x4 C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\sketch\rESP8266TimeTools.cpp.o
- .ctors         0x3ffe8900        0x4 C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\libraries\ESP8266WiFi\ESP8266WiFi.a(ESP8266WiFi.cpp.o)
- .ctors         0x3ffe8904        0x4 C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\libraries\ESP8266WiFi\ESP8266WiFi.a(ESP8266WiFiGeneric.cpp.o)
- .ctors         0x3ffe8908        0x4 C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\libraries\ESP8266WiFi\ESP8266WiFi.a(ESP8266WiFiScan.cpp.o)
- .ctors         0x3ffe890c        0x4 C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\core\core.a(HardwareSerial.cpp.o)
- .ctors         0x3ffe8910        0x4 C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\core\core.a(IPAddress.cpp.o)
- .ctors         0x3ffe8914        0x4 C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\core\core.a(Updater.cpp.o)
- .ctors         0x3ffe8918        0x4 C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\core\core.a(WString.cpp.o)
- .ctors         0x3ffe891c        0x4 C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\core\core.a(sntp-lwip2.cpp.o)
+ .ctors         0x3ffe88ec        0x4 C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\sketch\B4RCore.cpp.o
+ .ctors         0x3ffe88f0        0x4 C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\sketch\Scheduler.cpp.o
+ .ctors         0x3ffe88f4        0x4 C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\sketch\b4r_main.cpp.o
+ .ctors         0x3ffe88f8        0x4 C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\sketch\rESP8266TimeTools.cpp.o
+ .ctors         0x3ffe88fc        0x4 C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\libraries\ESP8266WiFi\ESP8266WiFi.a(ESP8266WiFi.cpp.o)
+ .ctors         0x3ffe8900        0x4 C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\libraries\ESP8266WiFi\ESP8266WiFi.a(ESP8266WiFiGeneric.cpp.o)
+ .ctors         0x3ffe8904        0x4 C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\libraries\ESP8266WiFi\ESP8266WiFi.a(ESP8266WiFiScan.cpp.o)
+ .ctors         0x3ffe8908        0x4 C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\core\core.a(HardwareSerial.cpp.o)
+ .ctors         0x3ffe890c        0x4 C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\core\core.a(IPAddress.cpp.o)
+ .ctors         0x3ffe8910        0x4 C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\core\core.a(Updater.cpp.o)
+ .ctors         0x3ffe8914        0x4 C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\core\core.a(WString.cpp.o)
+ .ctors         0x3ffe8918        0x4 C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\core\core.a(sntp-lwip2.cpp.o)
  *(SORT_BY_NAME(.ctors.*))
  *(.ctors)
-                0x3ffe8920                __init_array_end = ABSOLUTE (.)
+                0x3ffe891c                __init_array_end = ABSOLUTE (.)
  *crtbegin.o(.dtors)
  *(EXCLUDE_FILE(*crtend.o) .dtors)
- .dtors         0x3ffe8920        0x4 C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\sketch\b4r_main.cpp.o
- .dtors         0x3ffe8924        0x4 C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\sketch\rESP8266TimeTools.cpp.o
- .dtors         0x3ffe8928        0x4 C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\libraries\ESP8266WiFi\ESP8266WiFi.a(ESP8266WiFiGeneric.cpp.o)
- .dtors         0x3ffe892c        0x4 C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\libraries\ESP8266WiFi\ESP8266WiFi.a(ESP8266WiFiScan.cpp.o)
- .dtors         0x3ffe8930        0x4 C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\core\core.a(HardwareSerial.cpp.o)
- .dtors         0x3ffe8934        0x4 C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\core\core.a(Updater.cpp.o)
- .dtors         0x3ffe8938        0x4 C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\core\core.a(WString.cpp.o)
- .dtors         0x3ffe893c        0x4 C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\core\core.a(sntp-lwip2.cpp.o)
+ .dtors         0x3ffe891c        0x4 C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\sketch\b4r_main.cpp.o
+ .dtors         0x3ffe8920        0x4 C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\sketch\rESP8266TimeTools.cpp.o
+ .dtors         0x3ffe8924        0x4 C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\libraries\ESP8266WiFi\ESP8266WiFi.a(ESP8266WiFiGeneric.cpp.o)
+ .dtors         0x3ffe8928        0x4 C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\libraries\ESP8266WiFi\ESP8266WiFi.a(ESP8266WiFiScan.cpp.o)
+ .dtors         0x3ffe892c        0x4 C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\core\core.a(HardwareSerial.cpp.o)
+ .dtors         0x3ffe8930        0x4 C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\core\core.a(Updater.cpp.o)
+ .dtors         0x3ffe8934        0x4 C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\core\core.a(WString.cpp.o)
+ .dtors         0x3ffe8938        0x4 C:\Users\Cloyd\Desktop\HOMEAU~1\BASEME~1\Objects\bin\core\core.a(sntp-lwip2.cpp.o)
  *(SORT_BY_NAME(.dtors.*))
  *(.dtors)
-                0x3ffe8940                __XT_EXCEPTION_DESCS__ = ABSOLUTE (.)
+                0x3ffe893c                __XT_EXCEPTION_DESCS__ = ABSOLUTE (.)
  *(.xt_except_desc)
  *(.gnu.linkonce.h.*)
-                0x3ffe8940                __XT_EXCEPTION_DESCS_END__ = ABSOLUTE (.)
+                0x3ffe893c                __XT_EXCEPTION_DESCS_END__ = ABSOLUTE (.)
  *(.xt_except_desc_end)
  *(.dynamic)
  *(.gnu.version_d)
-                0x3ffe8940                . = ALIGN (0x4)
-                0x3ffe8940                _bss_table_start = ABSOLUTE (.)
-                0x3ffe8940        0x4 LONG 0x3ffe8948 _bss_start
-                0x3ffe8944        0x4 LONG 0x3ffeef00 _bss_end
-                0x3ffe8948                _bss_table_end = ABSOLUTE (.)
-                0x3ffe8948                _rodata_end = ABSOLUTE (.)
+                0x3ffe893c                . = ALIGN (0x4)
+                0x3ffe893c                _bss_table_start = ABSOLUTE (.)
+                0x3ffe893c        0x4 LONG 0x3ffe8948 _bss_start
+                0x3ffe8940        0x4 LONG 0x3ffeef00 _bss_end
+                0x3ffe8944                _bss_table_end = ABSOLUTE (.)
+                0x3ffe8944                _rodata_end = ABSOLUTE (.)
 
 .bss            0x3ffe8948     0x65b8
                 0x3ffe8948                . = ALIGN (0x8)
