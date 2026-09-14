@@ -1,0 +1,6 @@
+*.b4r filter=wifisecret
+*.b4a filter=wifisecret
+*.bas filter=wifisecret
+*.ino filter=wifisecret
+*.cpp filter=wifisecret
+*.h filter=wifisecret
